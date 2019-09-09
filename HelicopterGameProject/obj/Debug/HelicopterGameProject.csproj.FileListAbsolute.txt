@@ -1,0 +1,17 @@
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\bin\Debug\HelicopterGameProject.exe.config
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\bin\Debug\HelicopterGameProject.exe
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\bin\Debug\HelicopterGameProject.pdb
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.csprojAssemblyReference.cache
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\MainWindow.g.cs
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\App.g.cs
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject_MarkupCompile.cache
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject_MarkupCompile.lref
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\MainWindow.baml
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.g.resources
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.Properties.Resources.resources
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.csproj.GenerateResource.cache
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.csproj.CoreCompileInputs.cache
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.exe
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\HelicopterGameProject.pdb
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\MessageScreen.g.cs
+C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\obj\Debug\MessageScreen.baml
