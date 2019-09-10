@@ -31,104 +31,95 @@ namespace HelicopterGameProject
         bool moveDown; //this is a boolan to allow player to move down
         int score = 0; //this is a integer for player to keep score
         int distance = 0; //this is a integer for player to calcuate the distance
-        int playerspeed = 2; //this is a integer will control how fast the player moves
-        int obspeed = 2; //this is a speed of obstacles 
-        private EventHandler timer_Tick;
+        int playerspeed = 0; //this is a integer will control how fast the player moves
+        int obspeed = 0; //this is a speed of obstacles 
 
         public MainWindow()
         {
             InitializeComponent();
 
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Tick += Ticker;
             timer.Start();
         }
 
-        private void OnClickUp(object sender, MouseEventArgs e)
+        private void Ticker (object sender, EventArgs e)
         {
-          if (e.LeftButton == Mouse.LeftButton)
+            //show the distance on the label 
+            distance++;
+
+            DistanceResult.Content = distance.ToString();
+        }
+
+        private void OnClickUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == Mouse.LeftButton)
             {
+                //if the player click left button 
+                //the player the MoveUp to true
                 moveUp = false;
+
             }
 
-          if(e.LeftButton == MouseButtonState.Released)
+            if (e.LeftButton == MouseButtonState.Released)
             {
+                //if the player release left button 
+                //the player the MoveDown to true
                 moveDown = false;
+              
             }
         }
 
-        private void KeyisUp(object sender, KeyEventArgs e)
+        private void OnClickDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.Key == Key.Up)
-            {
-                 moveUp = false;
-            }
-
-            if(e.Key == Key.Down)
-            {
-                moveDown = false;
-            }
-        }
-
-        private void OnClickDown(object sender, MouseEventArgs e)
-        {
-            if(e.LeftButton == Mouse.LeftButton)
-            {
-                moveDown = true;
+            if (e.LeftButton == Mouse.LeftButton)
+            { 
+                //if the player click left button 
+                //the player the MoveUp to false
+                moveUp = true;
             }
 
             if(e.LeftButton == MouseButtonState.Released)
             {
-                moveDown = false;
-            }
-        }
-
-        private void KeyisDown(object sender, KeyEventArgs e)
-        {
-            if(e.Key == Key.Up)
-            {
-                moveUp = true;
-            }
-
-            if(e.Key == Key.Down)
-            {
-                moveDown = true;
+               //if the player release the left button
+               //the player MoveDown to false
+               moveDown = true;
             }
         }
 
         private void Gameplay(object sender, EventArgs e)
         {
-            // move pillar 1 towards the left of the screen
-            Rect rect1 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar1.Height);
-            Rect rect2 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar2.Height);
-            Rect rect3 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar3.Height);
-
-            //show the distance on the label 
-            DistanceResult.Content = distance;
-
+            // move pillar 1,2,3 towards the left of the screen
+            double obstaclespeed = obspeed -= 5;
+            Canvas.SetLeft(Pillar1, obstaclespeed);
+            Canvas.SetLeft(Pillar2, obstaclespeed);
+            Canvas.SetLeft(Pillar3, obstaclespeed);
+            
             if (moveUp)
             {
-                Canvas.SetLeft(btnHelicopter, 100);
-                Canvas.SetTop(btnHelicopter, 10);
+                double Player = playerspeed -= 10;
+                btnHelicopter.SetValue(Canvas.LeftProperty, Player);
+                btnHelicopter.SetValue(Canvas.TopProperty, Player);
             }
 
             if (moveDown)
             {
-                Canvas.SetLeft(btnHelicopter, 100);
-                Canvas.SetTop(btnHelicopter, 10);
+                double Player = playerspeed += 10;
+                btnHelicopter.SetValue(Canvas.LeftProperty, Player);
+                btnHelicopter.SetValue(Canvas.TopProperty, Player);
             }
 
-           /* if (Canvas.GetLeft(Pillar1))
-            {
-
-            }
-            if (btnHelicopter.IntersectsWith(rect1.Bounds) ||
-                btnHelicopter.IntersectsWith(rect2.Bounds) ||
-                 btnHelicopter.IntersectsWith(rect3.Bounds) 
+           /* if (btnHelicopter.IntersectsWith(Pillar1) ||
+                btnHelicopter.IntersectsWith(Pillar2) ||
+                 btnHelicopter.IntersectsWith(Pillar3) ||
+                  btnHelicopter.IntersectsWith(TitleRect) ||
+                   btnHelicopter.IntersectsWith(CalcuRect)
                 )
             {
-
+                DispatcherTimer timer = new DispatcherTimer();
+                timer.Stop();
+                MessageBox.Show("you hit the obstacle" + DistanceResult);
             }*/
         }
     }
