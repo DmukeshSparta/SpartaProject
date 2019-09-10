@@ -11,9 +11,9 @@
         <BitmapImage x:Key="ImageSource1" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\Resources\Helicopter.png"/>
     </Window.Resources>
     <Grid Background="#FF191919">
-        <Rectangle x:Name="TitleRect" Fill="#FF38DA17" HorizontalAlignment="Left" Height="34" Stroke="White" VerticalAlignment="Top" Width="794" Margin="0,0,-0.4,0"/>
+        <Rectangle x:Name="TitleRect" Fill="#FF38DA17" HorizontalAlignment="Left" Height="34" Stroke="White" VerticalAlignment="Top" Width="794" Margin="0,0,0.4,0"/>
         <Label x:Name="Title" Content="Enjoy the game and Remember the childhood" HorizontalAlignment="Left" Margin="367,0,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Trebuchet MS"/>
-        <Rectangle x:Name="CalcuRect" Fill="#FF38DA17" HorizontalAlignment="Left" Height="47" Stroke="White" VerticalAlignment="Top" Width="794" Margin="0,373,-0.4,0"/>
+        <Rectangle x:Name="CalcuRect" Fill="#FF38DA17" HorizontalAlignment="Left" Height="47" Stroke="White" VerticalAlignment="Top" Width="794" Margin="0,373,0.4,0"/>
         <Label x:Name="Distance" Content="Distance: " HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="DistanceResult" Content="0" HorizontalAlignment="Left" Margin="93,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.167,-0.769" FontSize="18" FontFamily="Trebuchet MS"/>
         <Label x:Name="ScoreTitle" Content="Best Score:" HorizontalAlignment="Left" Margin="644,380,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="18" FontWeight="Bold"/>
@@ -22,7 +22,7 @@
         <Label x:Name="SpaceScreenTitle" Content="Press Space to Start" HorizontalAlignment="Left" Margin="274,145,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="48" FontWeight="Bold" Foreground="#FF38DA17"/>
         <Label x:Name="InfoScreen" Content="Click and Hold to Go Up " HorizontalAlignment="Left" Margin="456,211,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="24" FontWeight="Bold" Foreground="#FF38DA17"/>
         <Label x:Name="InfoScreen1" Content="Release to Go Down" HorizontalAlignment="Left" Margin="498,249,0,0" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="24" FontWeight="Bold" Foreground="#FF38DA17"/>
-        <Image x:Name="HelicopterImage" HorizontalAlignment="Left" Height="171" Margin="30,100,0,0" VerticalAlignment="Top" Width="209" Source ="C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\bin\Debug\Helicopter.Png">
+        <Image x:Name="HelicopterImage" HorizontalAlignment="Left" Height="171" Margin="30,100,0,0" VerticalAlignment="Top" Width="209" Source ="C:\Users\Dipak Mukesh\OneDrive - Sparta Global Limited\Engineering40\SpartaProject\HelicopterGameProject\HelicopterGameProject\bin\Debug\Helicopter.png">
         </Image>
 
     </Grid>

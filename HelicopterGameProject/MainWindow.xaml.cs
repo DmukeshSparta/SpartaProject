@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace HelicopterGameProject
 {
@@ -30,12 +31,18 @@ namespace HelicopterGameProject
         bool moveDown; //this is a boolan to allow player to move down
         int score = 0; //this is a integer for player to keep score
         int distance = 0; //this is a integer for player to calcuate the distance
-        int playerspeed = 5; //this is a integer will control how fast the player moves
-        int obspeed = 5; //this is a speed of obstacles 
+        int playerspeed = 2; //this is a integer will control how fast the player moves
+        int obspeed = 2; //this is a speed of obstacles 
+        private EventHandler timer_Tick;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += timer_Tick;
+            timer.Start();
         }
 
         private void OnClickUp(object sender, MouseEventArgs e)
@@ -55,7 +62,7 @@ namespace HelicopterGameProject
         {
             if (e.Key == Key.Up)
             {
-                moveUp = false;
+                 moveUp = false;
             }
 
             if(e.Key == Key.Down)
@@ -90,33 +97,39 @@ namespace HelicopterGameProject
             }
         }
 
-        private void Gameplay (object sender, EventArgs e)
+        private void Gameplay(object sender, EventArgs e)
         {
             // move pillar 1 towards the left of the screen
-            Pillar1.Height -= obspeed;
-            Pillar1.Width -= obspeed;
-            
-            // move pillar 2 towards the left of the screen
-            Pillar2.Height -= obspeed;
-            Pillar2.Width -= obspeed;
+            Rect rect1 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar1.Height);
+            Rect rect2 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar2.Height);
+            Rect rect3 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar3.Height);
 
             //show the distance on the label 
             DistanceResult.Content = distance;
 
             if (moveUp)
             {
-                btnHelicopter -= playerspeed;
+                Canvas.SetLeft(btnHelicopter, 100);
+                Canvas.SetTop(btnHelicopter, 10);
             }
 
             if (moveDown)
             {
-                btnHelicopter += playerspeed;
+                Canvas.SetLeft(btnHelicopter, 100);
+                Canvas.SetTop(btnHelicopter, 10);
             }
 
+           /* if (Canvas.GetLeft(Pillar1))
+            {
 
+            }
+            if (btnHelicopter.IntersectsWith(rect1.Bounds) ||
+                btnHelicopter.IntersectsWith(rect2.Bounds) ||
+                 btnHelicopter.IntersectsWith(rect3.Bounds) 
+                )
+            {
+
+            }*/
         }
-
-
-
     }
 }

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\HelicopterGameProject"
   ],
-  "SelectedNode": "\\HelicopterGameProject.sln",
+  "SelectedNode": "\\HelicopterGameProject\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }
