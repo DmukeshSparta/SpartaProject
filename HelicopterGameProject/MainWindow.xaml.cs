@@ -35,7 +35,7 @@ namespace HelicopterGameProject
         {
             InitializeComponent();
 
-            playerspeed = 185; //starting position on the canvas 
+            playerspeed = 169; //starting position on the canvas 
 
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Ticker;
@@ -57,7 +57,7 @@ namespace HelicopterGameProject
             //pillar 1 - top pillar
             double pillar1Left = Canvas.GetLeft(Pillar1);
             Canvas.SetLeft(Pillar1, pillar1Left - 50);
-          
+
             //pillar 2 - right pillar
             double pillar2Left = Canvas.GetLeft(Pillar2);
             Canvas.SetLeft(Pillar2, pillar2Left - 40);
@@ -73,31 +73,14 @@ namespace HelicopterGameProject
             //pillar 1
             foreach (Rectangle r in pillaroflist)
             {
-                Canvas.SetLeft(r, Canvas.GetLeft(r) -2);
-
-                if(Canvas.B = 450){
-
+                //if pillar reaches 0 width then it will reset the pillar and start window width 
+                if (Canvas.GetLeft(r) < 0)
+                {
+                    Canvas.SetLeft(r, 600);
                 }
             }
 
-            //pillar 2
-            /*for (int i = 0; i < pillar2Left; i++)
-            {
-                Canvas.SetLeft(Pillar2, pillar2Left - 40);
-            }
-
-            //pillar 3
-            for (int i = 0; i < pillar3Left; i++)
-            {
-                Canvas.SetLeft(Pillar3, pillar3Left - 40);
-            }
-
-            //pillar 4
-            for (int i = 0; i < pillar4Left; i++)
-            {
-                Canvas.SetLeft(Pillar4, pillar4Left - 40);
-            }*/
-
+            Rect heli = new Rect(Canvas.GetLeft(RectHeli), Canvas.GetTop(RectHeli), RectHeli.Width, RectHeli.Height);
             Rect rect1 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar1.Height);
             Rect rect2 = new Rect(Canvas.GetLeft(Pillar2), Canvas.GetTop(Pillar2), Pillar2.Width, Pillar2.Height);
             Rect rect3 = new Rect(Canvas.GetLeft(Pillar3), Canvas.GetTop(Pillar3), Pillar3.Width, Pillar3.Height);
@@ -105,30 +88,35 @@ namespace HelicopterGameProject
             Rect rect5 = new Rect(Canvas.GetLeft(TitleRect), Canvas.GetTop(TitleRect), TitleRect.Width, TitleRect.Height);
             Rect rect6 = new Rect(Canvas.GetLeft(CalcuRect), Canvas.GetTop(CalcuRect), CalcuRect.Width, CalcuRect.Height);
 
-/*            if (rect1.IntersectsWith(btnHelicopter) ||
-                rect2.IntersectsWith(btnHelicopter) ||
-                 rect3.IntersectsWith(btnHelicopter) ||
-                  rect4.IntersectsWith(btnHelicopter) ||
-                    rect5.IntersectsWith(btnHelicopter) ||
-                     rect6.IntersectsWith(btnHelicopter))
+            //if the helicopter collide with obstacle then it will stop the timer and 
+            //print the message out. 
+            if (rect1.IntersectsWith(heli) || rect2.IntersectsWith(heli) ||
+                rect3.IntersectsWith(heli) || rect4.IntersectsWith(heli) ||
+                rect5.IntersectsWith(heli) || rect6.IntersectsWith(heli))
             {
                 timer.Stop();
-                MessageBox.Show("Game is finished" + survive.ToString());
-            }*/
+                MessageBox.Show("Game is finished " + "\n" + "Final Result: " + survive.ToString());
+                Close();
+            }
         }
 
-        private void KeyIsUp(object sender, KeyEventArgs e)
+        private void MseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.Key == Key.Up)
+            //if the player right click, the helicopter will move down
+            if (e.LeftButton == MouseButtonState.Released)
             {
-                double Player = playerspeed -= 20;
-                btnHelicopter.SetValue(Canvas.TopProperty, Player);
+                double player = playerspeed += 20;
+                RectHeli.SetValue(Canvas.TopProperty, player);
             }
+        }
 
-            if (e.Key == Key.Down)
+        private void MseUP(object sender, MouseButtonEventArgs e)
+        {
+            //if the player left click, the helicopter will move up
+            if (e.LeftButton == Mouse.LeftButton)
             {
-                double Player = playerspeed += 20;
-                btnHelicopter.SetValue(Canvas.TopProperty, Player);
+                double player = playerspeed -= 20;
+                RectHeli.SetValue(Canvas.TopProperty, player);
             }
         }
     }
