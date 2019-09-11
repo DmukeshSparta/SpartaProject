@@ -48,18 +48,55 @@ namespace HelicopterGameProject
             survive++;
             DistanceResult.Content = survive.ToString();
 
+            List<Rectangle> pillaroflist = new List<Rectangle>()
+            {
+                Pillar1, Pillar2, Pillar3, Pillar4
+            };
+
             // move pillar 1,2,3,4 towards the left of the screen
+            //pillar 1 - top pillar
             double pillar1Left = Canvas.GetLeft(Pillar1);
-            Canvas.SetLeft(Pillar1, pillar1Left - 20);
-
+            Canvas.SetLeft(Pillar1, pillar1Left - 50);
+          
+            //pillar 2 - right pillar
             double pillar2Left = Canvas.GetLeft(Pillar2);
-            Canvas.SetLeft(Pillar2, pillar2Left - 20);
+            Canvas.SetLeft(Pillar2, pillar2Left - 40);
 
+            //pillar 3 - left pillar 
             double pillar3Left = Canvas.GetLeft(Pillar3);
-            Canvas.SetLeft(Pillar3, pillar3Left - 20);
+            Canvas.SetLeft(Pillar3, pillar3Left - 40);
 
+            //pillar 4 - bottom pillar
             double pillar4Left = Canvas.GetLeft(Pillar4);
-            Canvas.SetLeft(Pillar4, pillar4Left - 20);
+            Canvas.SetLeft(Pillar4, pillar4Left - 40);
+
+            //pillar 1
+            foreach (Rectangle r in pillaroflist)
+            {
+                Canvas.SetLeft(r, Canvas.GetLeft(r) -2);
+
+                if(Canvas.B = 450){
+
+                }
+            }
+
+            //pillar 2
+            /*for (int i = 0; i < pillar2Left; i++)
+            {
+                Canvas.SetLeft(Pillar2, pillar2Left - 40);
+            }
+
+            //pillar 3
+            for (int i = 0; i < pillar3Left; i++)
+            {
+                Canvas.SetLeft(Pillar3, pillar3Left - 40);
+            }
+
+            //pillar 4
+            for (int i = 0; i < pillar4Left; i++)
+            {
+                Canvas.SetLeft(Pillar4, pillar4Left - 40);
+            }*/
 
             Rect rect1 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar1.Height);
             Rect rect2 = new Rect(Canvas.GetLeft(Pillar2), Canvas.GetTop(Pillar2), Pillar2.Width, Pillar2.Height);
