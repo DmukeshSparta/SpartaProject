@@ -27,100 +27,72 @@ namespace HelicopterGameProject
     public partial class MainWindow : Window
     {
         //Variables 
-        bool moveUp; //this is a boolean to allow player to move up
-        bool moveDown; //this is a boolan to allow player to move down
-        int score = 0; //this is a integer for player to keep score
-        int distance = 0; //this is a integer for player to calcuate the distance
-        int playerspeed = 0; //this is a integer will control how fast the player moves
-        int obspeed = 0; //this is a speed of obstacles 
+        int survive = 0; //this is a integer for player to calcuate player survive
+        int playerspeed; //this is a integer will control how fast the player moves
+        DispatcherTimer timer = new DispatcherTimer();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(10);
+            playerspeed = 185; //starting position on the canvas 
+
+            timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += Ticker;
             timer.Start();
         }
 
-        private void Ticker (object sender, EventArgs e)
+        private void Ticker(object sender, EventArgs e)
         {
-            //show the distance on the label 
-            distance++;
+            //show the survive on the label 
+            survive++;
+            DistanceResult.Content = survive.ToString();
 
-            DistanceResult.Content = distance.ToString();
-        }
+            // move pillar 1,2,3,4 towards the left of the screen
+            double pillar1Left = Canvas.GetLeft(Pillar1);
+            Canvas.SetLeft(Pillar1, pillar1Left - 20);
 
-        private void OnClickUp(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == Mouse.LeftButton)
+            double pillar2Left = Canvas.GetLeft(Pillar2);
+            Canvas.SetLeft(Pillar2, pillar2Left - 20);
+
+            double pillar3Left = Canvas.GetLeft(Pillar3);
+            Canvas.SetLeft(Pillar3, pillar3Left - 20);
+
+            double pillar4Left = Canvas.GetLeft(Pillar4);
+            Canvas.SetLeft(Pillar4, pillar4Left - 20);
+
+            Rect rect1 = new Rect(Canvas.GetLeft(Pillar1), Canvas.GetTop(Pillar1), Pillar1.Width, Pillar1.Height);
+            Rect rect2 = new Rect(Canvas.GetLeft(Pillar2), Canvas.GetTop(Pillar2), Pillar2.Width, Pillar2.Height);
+            Rect rect3 = new Rect(Canvas.GetLeft(Pillar3), Canvas.GetTop(Pillar3), Pillar3.Width, Pillar3.Height);
+            Rect rect4 = new Rect(Canvas.GetLeft(Pillar4), Canvas.GetTop(Pillar4), Pillar4.Width, Pillar4.Height);
+            Rect rect5 = new Rect(Canvas.GetLeft(TitleRect), Canvas.GetTop(TitleRect), TitleRect.Width, TitleRect.Height);
+            Rect rect6 = new Rect(Canvas.GetLeft(CalcuRect), Canvas.GetTop(CalcuRect), CalcuRect.Width, CalcuRect.Height);
+
+/*            if (rect1.IntersectsWith(btnHelicopter) ||
+                rect2.IntersectsWith(btnHelicopter) ||
+                 rect3.IntersectsWith(btnHelicopter) ||
+                  rect4.IntersectsWith(btnHelicopter) ||
+                    rect5.IntersectsWith(btnHelicopter) ||
+                     rect6.IntersectsWith(btnHelicopter))
             {
-                //if the player click left button 
-                //the player the MoveUp to true
-                moveUp = false;
-
-            }
-
-            if (e.LeftButton == MouseButtonState.Released)
-            {
-                //if the player release left button 
-                //the player the MoveDown to true
-                moveDown = false;
-              
-            }
-        }
-
-        private void OnClickDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == Mouse.LeftButton)
-            { 
-                //if the player click left button 
-                //the player the MoveUp to false
-                moveUp = true;
-            }
-
-            if(e.LeftButton == MouseButtonState.Released)
-            {
-               //if the player release the left button
-               //the player MoveDown to false
-               moveDown = true;
-            }
-        }
-
-        private void Gameplay(object sender, EventArgs e)
-        {
-            // move pillar 1,2,3 towards the left of the screen
-            double obstaclespeed = obspeed -= 5;
-            Canvas.SetLeft(Pillar1, obstaclespeed);
-            Canvas.SetLeft(Pillar2, obstaclespeed);
-            Canvas.SetLeft(Pillar3, obstaclespeed);
-            
-            if (moveUp)
-            {
-                double Player = playerspeed -= 10;
-                btnHelicopter.SetValue(Canvas.LeftProperty, Player);
-                btnHelicopter.SetValue(Canvas.TopProperty, Player);
-            }
-
-            if (moveDown)
-            {
-                double Player = playerspeed += 10;
-                btnHelicopter.SetValue(Canvas.LeftProperty, Player);
-                btnHelicopter.SetValue(Canvas.TopProperty, Player);
-            }
-
-           /* if (btnHelicopter.IntersectsWith(Pillar1) ||
-                btnHelicopter.IntersectsWith(Pillar2) ||
-                 btnHelicopter.IntersectsWith(Pillar3) ||
-                  btnHelicopter.IntersectsWith(TitleRect) ||
-                   btnHelicopter.IntersectsWith(CalcuRect)
-                )
-            {
-                DispatcherTimer timer = new DispatcherTimer();
                 timer.Stop();
-                MessageBox.Show("you hit the obstacle" + DistanceResult);
+                MessageBox.Show("Game is finished" + survive.ToString());
             }*/
+        }
+
+        private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                double Player = playerspeed -= 20;
+                btnHelicopter.SetValue(Canvas.TopProperty, Player);
+            }
+
+            if (e.Key == Key.Down)
+            {
+                double Player = playerspeed += 20;
+                btnHelicopter.SetValue(Canvas.TopProperty, Player);
+            }
         }
     }
 }
