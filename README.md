@@ -35,8 +35,11 @@ Day 3) Finish the project and Github
 > Problems: when i was trying to collide obstacle (rectangle object) with button but in WPF you cannot collide rectangle with button, therefore i have to change the design from button to rectangle. 
 
 ***
-Overall Experience/ Future: 
+ScreenShot: 
 
+
+***
+Overall Experience/ Future: 
 it was fun and challenging working on this project because I had small experience with Csharp and WPF and this project has taught me new techinques can be used in Csharp, E.g. How to use Dispatch timer to control the survive score and obstacle. 
 
 This project can help me in the future as reference for "Do" and "Do not" on working with Csharp and WPF to reduce time waste. 
