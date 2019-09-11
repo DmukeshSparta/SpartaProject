@@ -35,11 +35,23 @@ Day 3) Finish the project and Github
 > Problems: when i was trying to collide obstacle (rectangle object) with button but in WPF you cannot collide rectangle with button, therefore i have to change the design from button to rectangle. 
 
 ***
-ScreenShot: 
+ScreenShot:
+#### Welcome Screen 
+Press "Space" to start the game
+![Welcome Screen](https://i.imgur.com/pGJ0gtY.png "Welcome Screen")
 
+#### Gameplay 
+Follow Instruction to play the game
+![Gameplay Screen](https://i.imgur.com/0ERZdCE.png "Gameplay Screen")
+
+#### Game end 
+Game end when the helicopter collide with obstacle 
+![GameEnd Screen](https://i.imgur.com/RAGPtdC.png "Game-end Screen")
 
 ***
 Overall Experience/ Future: 
-it was fun and challenging working on this project because I had small experience with Csharp and WPF and this project has taught me new techinques can be used in Csharp, E.g. How to use Dispatch timer to control the survive score and obstacle. 
+it was fun and challenging working on this project because I had small experience with Csharp, XAML and WPF and this project has taught me new techinques can be used for XAMl, Csharp and WPF. E.g. How to use Dispatch timer to control the survive score and obstacle. Create controls on XAML with code rather than dragging controls to designer. 
+
+if the project was extended to 1 or 2 day more, I could like to implement more features to the game, such as alien spawn and helicopter can shoot the bullet. Record the "Best score" with SQL database. 
 
 This project can help me in the future as reference for "Do" and "Do not" on working with Csharp and WPF to reduce time waste. 
